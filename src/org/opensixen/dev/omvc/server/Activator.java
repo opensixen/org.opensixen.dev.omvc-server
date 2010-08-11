@@ -22,6 +22,7 @@ public class Activator implements BundleActivator {
 		services.add(new OpensixenIDGenerator());
 		services.add(new RemoteConsole());
 		services.add(new RevisionUploader());
+		services.add(new RevisionDownloader());
 	}
 	
 	@Override

@@ -6,6 +6,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.criterion.Restrictions;
+import org.opensixen.dev.omvc.interfaces.IPO;
 
 
 public class HSession {
@@ -25,7 +27,6 @@ public class HSession {
 			throw new ExceptionInInitializerError(ex);
 		}
 	}
-
 
 	/**
 	 * Develve la sesion de Hibernate
@@ -63,8 +64,7 @@ public class HSession {
 		
 		return crit;
 	}
-	
-	
+		
 	/**
 	 * Graba un objeto en base de datos..
 	 * @param o
@@ -100,9 +100,7 @@ public class HSession {
 			s_log.error("No se ha podido grabar el objeto", e);
 			return false;
 		}
-	 }
-	
-	
+	 }		
 	
 	/**
 	 * Borra un objeto en base de datos..
@@ -128,4 +126,17 @@ public class HSession {
 		sess.delete(o);
 	}
 
+	/**
+	 * Devuelve el objeto con ID dado
+	 * @param <T>
+	 * @param clazz
+	 * @param id
+	 * @return
+	 */
+	public static <T extends IPO> T get(Class<T> clazz, int id)	{
+		Criteria crit = getCriteria(clazz);
+		crit.add(Restrictions.idEq(new Integer(id)));
+		return (T) crit.uniqueResult();
+	}
+		
 }

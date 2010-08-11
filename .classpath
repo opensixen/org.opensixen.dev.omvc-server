@@ -7,7 +7,11 @@
 	<classpathentry exported="true" kind="lib" path="lib/hibernate-annotations.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/hibernate-commons-annotations.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/hibernate-validator-4.0.2.GA.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/hibernate3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/hibernate3.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://docs.jboss.org/hibernate/stable/core/api/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="lib/javassist-3.4.GA.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jpa-api-2.0.Beta-20090815.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jta-1.1.jar"/>

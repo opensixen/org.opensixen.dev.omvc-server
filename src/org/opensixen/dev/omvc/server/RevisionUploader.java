@@ -1,6 +1,5 @@
 package org.opensixen.dev.omvc.server;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -68,7 +67,7 @@ public class RevisionUploader implements IRevisionUploader, IRienaServer {
 			return false;
 		}
 		log.info("Revision guardada con exito.");
-		return false;
+		return true;
 	}
 
 	@Override
