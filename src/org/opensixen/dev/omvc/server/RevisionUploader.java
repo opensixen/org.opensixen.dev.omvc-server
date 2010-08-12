@@ -43,7 +43,7 @@ public class RevisionUploader implements IRevisionUploader, IRienaServer {
 	}
 
 	@Override
-	public boolean uploadRevison(Revision revision) {
+	public int uploadRevison(Revision revision) {
 		
 		Criteria crit = HSession.getCriteria(Developer.class);
 		crit.add(Restrictions.eq("developer_ID", 1));
@@ -64,10 +64,10 @@ public class RevisionUploader implements IRevisionUploader, IRienaServer {
 		catch (HibernateException e)	{
 			sess.getTransaction().rollback();
 			log.error("Error guardando la revision");
-			return false;
+			return -1;
 		}
 		log.info("Revision guardada con exito.");
-		return true;
+		return revision.getRevision_ID();
 	}
 
 	@Override

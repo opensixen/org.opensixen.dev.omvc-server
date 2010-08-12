@@ -6,7 +6,7 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.password">indeos</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://wilma/omvc</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost/omvc</property>
         <property name="hibernate.connection.username">omvc</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
