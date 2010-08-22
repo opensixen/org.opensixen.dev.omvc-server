@@ -1,5 +1,6 @@
 package org.opensixen.dev.omvc.server;
 
+import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -49,6 +50,7 @@ public class RevisionUploader implements IRevisionUploader, IRienaServer {
 		crit.add(Restrictions.eq("developer_ID", 1));
 		Developer dev = (Developer) crit.uniqueResult();
 		revision.setDeveloper(dev);
+		revision.setCreated(new Date());
 		
 		Session sess = HSession.getSession();
 		sess.beginTransaction();

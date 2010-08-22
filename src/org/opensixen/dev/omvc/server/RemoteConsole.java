@@ -1,6 +1,7 @@
 package org.opensixen.dev.omvc.server;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -109,7 +110,7 @@ public class RemoteConsole implements IRemoteConsole, IRienaServer {
 			Developer dev = (Developer) crit.uniqueResult();
 			revision.setDeveloper(dev);
 		}
-		
+		revision.setCreated(new Date());
 		Session sess = HSession.getSession();
 		sess.beginTransaction();
 		try {
