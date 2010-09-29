@@ -1,0 +1,19 @@
+grant Principal org.opensixen.dev.omvc.jaas.DevPrincipal "indeos" {
+	permission org.opensixen.dev.omvc.jaas.OMVCPermission "loadPO";
+	permission org.opensixen.dev.omvc.jaas.OMVCPermission "savePO";
+	permission org.opensixen.dev.omvc.jaas.OMVCPermission "listPO";
+	permission org.opensixen.dev.omvc.jaas.OMVCPermission "saveRev";
+	permission org.opensixen.dev.omvc.jaas.OMVCPermission "loadRev";
+	permission org.opensixen.dev.omvc.jaas.OMVCPermission "listRev";
+}; 
+
+
+grant Principal org.opensixen.dev.omvc.jaas.AnonymousPrincipal "indeos" {
+	permission org.opensixen.dev.omvc.jaas.OMVCPermission "listRev";
+	permission org.opensixen.dev.omvc.jaas.OMVCPermission "loadRev";
+}; 
+
+
+
+grant { permission java.security.AllPermission; };
+ 

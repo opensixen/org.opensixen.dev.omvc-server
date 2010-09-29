@@ -2,10 +2,15 @@ package org.opensixen.dev.omvc.server;
 
 import java.util.List;
 
+import javax.management.MBeanPermission;
+
+import org.eclipse.riena.security.common.authorization.Sentinel;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.opensixen.dev.omvc.interfaces.IRevisionDownloader;
+import org.opensixen.dev.omvc.jaas.OMVCPermission;
+import org.opensixen.dev.omvc.jaas.PermissionFactory;
 import org.opensixen.dev.omvc.model.Project;
 import org.opensixen.dev.omvc.model.Revision;
 import org.opensixen.dev.omvc.model.Script;
@@ -19,7 +24,11 @@ public class RevisionDownloader extends AbstractRienaServer implements IRevision
 	}
 
 	@Override
-	public List<Revision> getRevisions(int project_ID, int from) {
+	public List<Revision> getRevisions(int project_ID, int from) {		
+		if (!Sentinel.checkAccess(PermissionFactory.get(OMVCPermission.PERM_LISTREV)))	{
+			throw new SecurityException("Not enough privileges.");
+		}
+		
 		Project project = HSession.get(Project.class, project_ID);
 		Criteria crit = HSession.getCriteria(Revision.class);
 		crit.add(Restrictions.eq("project", project));

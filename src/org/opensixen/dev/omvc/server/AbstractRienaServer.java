@@ -4,7 +4,7 @@ import java.util.Hashtable;
 
 import org.apache.log4j.Logger;
 
-import org.opensixen.dev.omvc.interfaces.IRienaService;
+import org.opensixen.riena.interfaces.IRienaService;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 

@@ -1,0 +1,5 @@
+omvc {
+	org.eclipse.equinox.security.auth.module.ExtensionLoginModule required
+		debug="true"
+		extensionId="org.opensixen.dev.omvc-server.OMVCServerLoginModule";
+};
