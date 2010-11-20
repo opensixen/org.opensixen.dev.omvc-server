@@ -43,6 +43,7 @@ public class PermissionStore implements IPermissionStore {
 		dev.add(new OMVCPermission(OMVCPermission.PERM_LOADPO));
 		dev.add(new OMVCPermission(OMVCPermission.PERM_LISTPO));
 		dev.add(new OMVCPermission(OMVCPermission.PERM_SAVEPO));
+		dev.add(new OMVCPermission(OMVCPermission.PERM_GETID));
 		perm.put("dev", dev);
 		
 		return perm;
@@ -59,8 +60,7 @@ public class PermissionStore implements IPermissionStore {
 		}
 		else if (principal instanceof AnonymousPrincipal)	{
 			return permissionMap.get("anonymous");
-		}
-		
+		}		
 		return new Permissions();
 	}
 

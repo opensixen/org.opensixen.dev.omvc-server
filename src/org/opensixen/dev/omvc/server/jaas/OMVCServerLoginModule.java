@@ -15,8 +15,12 @@ import javax.security.auth.login.LoginException;
 import javax.security.auth.spi.LoginModule;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.opensixen.dev.omvc.jaas.AnonymousPrincipal;
 import org.opensixen.dev.omvc.jaas.DevPrincipal;
+import org.opensixen.dev.omvc.model.Developer;
+import org.opensixen.dev.omvc.util.HSession;
 
 
 /**
@@ -59,14 +63,49 @@ public class OMVCServerLoginModule implements LoginModule {
 	@Override
 	public boolean login() throws LoginException {
 		processCallbacks();
-		log.info("Usuario: " + username + " Password: " + password.toString());
 		
-		if (username.equals("indeos"))	{
-			dev = true;
+		if (loginDeveloper())	{
+			return true;
 		}
+		
+		// Ever return true
 		return true;
 	}
 
+	
+	/**
+	 * check if logged user is repository admin
+	 * @return
+	 * @throws LoginException
+	 */
+	private boolean loginDeveloper() throws LoginException	{
+		String pass = new String(password);
+		
+		log.info("Usuario: " + username + " Password: " + pass);
+		
+		// Look for developer info
+		Criteria crit = HSession.getCriteria(Developer.class);
+		crit.add(Restrictions.eq("userName", username));
+		
+		Developer developer = (Developer) crit.uniqueResult();
+		
+		if (developer == null)	 {
+			log.warn("Invalid login: " + username);
+			return false;
+		}
+		// TODO MD5 passwords
+		if (developer.getPassword().equals(pass))	{
+			dev = true;
+		}
+		
+		else {
+			log.warn("Invalid login: " + username);		
+			return false;
+		}
+		return true;
+		
+	}
+	
 	/* (non-Javadoc)
 	 * @see javax.security.auth.spi.LoginModule#commit()
 	 */
