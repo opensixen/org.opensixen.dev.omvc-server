@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product uid="omvc-server" id="org.eclipse.equinox.p2.ui.admin.rcp.product" version="0.1.0" useFeatures="false" includeLaunchers="true">
+<product uid="omvc-server" version="0.1.0" useFeatures="false" includeLaunchers="false">
 
    <configIni use="default">
    </configIni>
@@ -20,27 +20,15 @@
    </launcher>
 
    <vm>
-      <linux>org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</linux>
+      <linux include="true">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</linux>
    </vm>
 
    <plugins>
       <plugin id="com.caucho.hessian"/>
       <plugin id="javax.servlet"/>
-      <plugin id="javax.servlet.jsp"/>
-      <plugin id="javax.transaction" fragment="true"/>
-      <plugin id="org.apache.ant"/>
-      <plugin id="org.apache.commons.el"/>
-      <plugin id="org.apache.commons.logging"/>
-      <plugin id="org.apache.jasper"/>
-      <plugin id="org.apache.log4j"/>
-      <plugin id="org.apache.oro"/>
-      <plugin id="org.easymock"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.jobs"/>
-      <plugin id="org.eclipse.core.net"/>
-      <plugin id="org.eclipse.core.net.linux.x86" fragment="true"/>
       <plugin id="org.eclipse.core.runtime"/>
-      <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
       <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
       <plugin id="org.eclipse.core.variables"/>
       <plugin id="org.eclipse.equinox.app"/>
@@ -52,30 +40,29 @@
       <plugin id="org.eclipse.equinox.preferences"/>
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.equinox.security"/>
+      <plugin id="org.eclipse.equinox.security.macosx" fragment="true"/>
+      <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.equinox.servletbridge.extensionbundle" fragment="true"/>
       <plugin id="org.eclipse.equinox.transforms.hook" fragment="true"/>
+      <plugin id="org.eclipse.equinox.weaving.hook" fragment="true"/>
       <plugin id="org.eclipse.osgi"/>
       <plugin id="org.eclipse.osgi.services"/>
-      <plugin id="org.eclipse.persistence.jpa.equinox.weaving" fragment="true"/>
       <plugin id="org.eclipse.riena.communication.console"/>
       <plugin id="org.eclipse.riena.communication.core"/>
       <plugin id="org.eclipse.riena.communication.factory.hessian"/>
       <plugin id="org.eclipse.riena.communication.publisher"/>
       <plugin id="org.eclipse.riena.communication.publisher.hessian"/>
       <plugin id="org.eclipse.riena.core"/>
+      <plugin id="org.eclipse.riena.security.common"/>
+      <plugin id="org.eclipse.riena.security.server"/>
+      <plugin id="org.eclipse.riena.security.services"/>
       <plugin id="org.eclipse.riena.server"/>
-      <plugin id="org.junit"/>
       <plugin id="org.mortbay.jetty.server"/>
       <plugin id="org.mortbay.jetty.util"/>
-      <plugin id="org.opensixen.omvc_common"/>
-      <plugin id="org.opensixen.omvc_server"/>
+      <plugin id="org.opensixen.dev.omvc-common"/>
+      <plugin id="org.opensixen.dev.omvc-server"/>
       <plugin id="org.opensixen.riena"/>
    </plugins>
 
-   <configurations>
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
-      <plugin id="org.eclipse.core.variables" autoStart="false" startLevel="0" />
-      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
-   </configurations>
 
 </product>
