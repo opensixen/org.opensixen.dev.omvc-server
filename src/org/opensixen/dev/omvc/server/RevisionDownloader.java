@@ -2,8 +2,6 @@ package org.opensixen.dev.omvc.server;
 
 import java.util.List;
 
-import javax.management.MBeanPermission;
-
 import org.eclipse.riena.security.common.authorization.Sentinel;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
@@ -42,6 +40,7 @@ public class RevisionDownloader extends AbstractRienaServer implements IRevision
 		Criteria crit = HSession.getCriteria(Script.class);
 		crit.add(Restrictions.eq("revision", revision));
 		crit.add(Restrictions.in("engine", engines));
+		crit.addOrder(Order.asc("name"));
 		crit.addOrder(Order.asc("script_ID"));
 		return crit.list();
 	}
