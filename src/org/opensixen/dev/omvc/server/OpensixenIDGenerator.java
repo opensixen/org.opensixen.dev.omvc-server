@@ -69,6 +69,7 @@ import org.opensixen.dev.omvc.interfaces.IRemoteCentralizedIDGenerator;
 import org.opensixen.dev.omvc.jaas.OMVCPermission;
 import org.opensixen.dev.omvc.jaas.PermissionFactory;
 import org.opensixen.dev.omvc.model.Sequence;
+import org.opensixen.riena.server.IRienaServer;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 

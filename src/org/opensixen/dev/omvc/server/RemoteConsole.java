@@ -96,6 +96,7 @@ import org.opensixen.dev.omvc.model.Project;
 import org.opensixen.dev.omvc.model.Revision;
 import org.opensixen.dev.omvc.model.Script;
 import org.opensixen.dev.omvc.util.HSession;
+import org.opensixen.riena.server.IRienaServer;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 

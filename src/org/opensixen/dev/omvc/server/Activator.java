@@ -71,6 +71,7 @@ import org.eclipse.riena.security.authorizationservice.IPermissionStore;
 import org.eclipse.riena.security.sessionservice.ISessionStore;
 import org.opensixen.dev.omvc.server.jaas.MemoryStore;
 import org.opensixen.dev.omvc.server.jaas.PermissionStore;
+import org.opensixen.riena.server.IRienaServer;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
